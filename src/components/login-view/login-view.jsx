@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
@@ -23,7 +24,7 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>
-        Submit
+        Login
       </button>
     </form>
   );
