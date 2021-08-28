@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
@@ -12,7 +14,7 @@ export class MovieCard extends React.Component {
 
     return (
       <Card>
-        <Card.Img />
+        <Card.Img variant="top" src={movie.ImageURL} />
         <Card.Body>
           <Card.Title className="card-title">
             <h1>{movie.Title}</h1>
@@ -21,9 +23,11 @@ export class MovieCard extends React.Component {
             <Badge className="genre-badge">genre</Badge>
           </div>
           <Card.Text className="card-description">{movie.Description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="link">
-            See more...
-          </Button>
+          <Link to={`/movies/${movie._id}`}>
+            <Button onClick={() => onMovieClick(movie)} variant="link">
+              See more...
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     );
