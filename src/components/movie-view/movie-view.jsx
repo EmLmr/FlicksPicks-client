@@ -44,7 +44,7 @@ export class MovieView extends React.Component {
             </div>
             <div className="movie-genre">
               <span className="label">Genre:</span>
-              <span className="value">{movie.Genre}</span>
+              <Link to={`/genres/${movie.Genre.Gname}`}>{movie.Genre.Gname}</Link>
             </div>
           </Col>
           <Col md={7}>
@@ -58,8 +58,9 @@ export class MovieView extends React.Component {
               <span className="label">
                 <h3>Directed by:</h3>{" "}
               </span>
-              <span className="value">{movie.Director}</span>
+              <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
             </div>
+
             <div className="movie-actors">
               <span className="label">
                 <h3>Cast:</h3>
