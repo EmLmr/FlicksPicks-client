@@ -65,6 +65,10 @@
   background-color: #ff0075;
 }
 
+.card-description {
+  font-size: 1rem;
+}
+
 .card-img-top {
   height: 17rem;
   object-fit: contain;

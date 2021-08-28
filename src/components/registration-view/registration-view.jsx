@@ -16,8 +16,21 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    props.onRegistration(username);
+    axios
+      .post("https://flickspicks.herokuapp.com/users", {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday,
+      })
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        window.open("/", "_self"); // the second argument '_self' is necessary so that the page will open in the current tab
+      })
+      .catch((e) => {
+        console.log("error registering the user");
+      });
   };
 
   return (
@@ -50,6 +63,16 @@ export function RegistrationView(props) {
           <Button type="submit" size="lg" bsPrefix="submit-btn" Row={8} onClick={handleSubmit}>
             Register
           </Button>
+        </Col>
+      </Row>
+      <Row className="redirect-row">
+        <Col className="text-center">
+          <div>
+            To login,
+            <Button className="text-center" variant="link" type="submit" href="/">
+              click here
+            </Button>
+          </div>
         </Col>
       </Row>
     </Form>

@@ -59,12 +59,6 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  onRegister(register) {
-    this.setState({
-      register: register,
-    });
-  }
-
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -74,32 +68,41 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, register } = this.state;
-
-    if (!user)
-      return (
-        <Row>
-          <Col>
-            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-          </Col>
-        </Row>
-      );
-    if (movies.length === 0) return <div className="main-view" />;
+    const { movies, user } = this.state;
 
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
+          {/*  ALL MOVIES / HOME PAGE */}
           <Route
             exact
             path="/"
             render={() => {
-              if (!user) return;
-
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
                 <Col sm={12} md={6} lg={4} key={m._id}>
                   <MovieCard movie={m} />
                 </Col>
               ));
+            }}
+          />
+
+          {/*  USER REGISTRATION */}
+          <Route
+            path="/register"
+            render={() => {
+              if (user) return <Redirect to="/" />;
+              return (
+                <Col>
+                  <RegistrationView />
+                </Col>
+              );
             }}
           />
 

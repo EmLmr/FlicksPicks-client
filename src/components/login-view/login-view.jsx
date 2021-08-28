@@ -51,6 +51,16 @@ export function LoginView(props) {
           </Button>
         </Col>
       </Row>
+      <Row className="redirect-row">
+        <Col className="text-center">
+          <div>
+            Don't have an account yet?
+            <Button className="text-center" variant="link" type="submit" href="/register">
+              Sign up
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </Form>
   );
 }
