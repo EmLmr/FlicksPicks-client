@@ -5,8 +5,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 
 import "./registration-view.scss";
+
+const logo = require("../../public/img/logo.png");
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
@@ -22,6 +25,9 @@ export function RegistrationView(props) {
 
   return (
     <Form>
+      <Row className="logo justify-content-center">
+        <Image src={logo} fluid />
+      </Row>
       <Row className="form-body justify-content-center">
         <Col xs={8} md={6}>
           <Form.Group controlId="formUsername">
