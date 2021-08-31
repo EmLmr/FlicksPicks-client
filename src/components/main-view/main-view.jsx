@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
+import { DirectorView } from "../director-view/director-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -16,7 +17,6 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
       register: true,
     };
@@ -92,7 +92,6 @@ export class MainView extends React.Component {
               ));
             }}
           />
-
           {/*  USER REGISTRATION */}
           <Route
             path="/register"
@@ -105,7 +104,7 @@ export class MainView extends React.Component {
               );
             }}
           />
-
+          {/*  MOVIE  */}
           <Route
             path="/movies/:movieId"
             render={({ match, history }) => {
@@ -120,6 +119,28 @@ export class MainView extends React.Component {
                 <Col md={8}>
                   <MovieView
                     movie={movies.find((m) => m._id === match.params.movieId)}
+                    onBackClick={() => history.goBack()}
+                  />
+                </Col>
+              );
+            }}
+          />
+
+          {/* DIRECTOR */}
+          <Route
+            path="/directors/:name"
+            render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
+                <Col md={8}>
+                  <DirectorView
+                    director={movies.find((m) => m.Director.Name === match.params.name).Director}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
