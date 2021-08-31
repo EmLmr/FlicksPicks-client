@@ -52,6 +52,10 @@
 .movie-view h3 {
   font-size: 1em;
 }
+
+.movie-description {
+  font-size: 1rem;
+}
 .movie-card {
   width: 18rem;
 }
@@ -61,12 +65,12 @@
   font-family: "Oswald", sans-serif;
 }
 
-.genre-badge {
-  background-color: #ff0075;
-}
-
 .card-description {
   font-size: 1rem;
+}
+
+.genre-badge {
+  background-color: #ff0075;
 }
 
 .card-img-top {

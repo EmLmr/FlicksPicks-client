@@ -15,7 +15,7 @@ export class NavBar extends React.Component {
     <Navbar className="navbar justify-content-end" activeKey="/">
       <div className="logo">
         <Link to={`/`}>
-          <Image alt="" src={logo} className="navbar-logo d-inline-block align-top" />
+          <img alt="" src={logo} className="navbar-logo d-inline-block align-top" />
         </Link>
       </div>
       <Container className="nav-container justify-content-end">
