@@ -37394,6 +37394,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _axios = _interopRequireDefault(require("axios"));
+
 var _Row = _interopRequireDefault(require("react-bootstrap/Row"));
 
 var _Col = _interopRequireDefault(require("react-bootstrap/Col"));
@@ -37438,8 +37440,26 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MovieView, [{
+    key: "addFavorite",
+    value: function addFavorite() {
+      var token = localStorage.getItem("token");
+      var username = localStorage.getItem("user");
+
+      _axios.default.post("https://flickspicks.herokuapp.com/users/".concat(username, "/movies/").concat(this.props.movie._id), {}, {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      }).then(function (response) {
+        alert("Movie succesfully added to favorites!");
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           movie = _this$props.movie,
           onBackClick = _this$props.onBackClick;
@@ -37496,7 +37516,16 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, /*#__PURE__*/_react.default.createElement("h3", null, "Cast:")), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movie.Actors.join(", "))))));
+      }, movie.Actors.join(", "))))), /*#__PURE__*/_react.default.createElement(_Row.default, {
+        className: "justify-content-md-center"
+      }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+        variant: "danger",
+        className: "fav-button",
+        value: movie._id,
+        onClick: function onClick(e) {
+          return _this.addFavorite(e, movie);
+        }
+      }, "\u2661")));
     }
   }]);
 
@@ -37519,7 +37548,7 @@ MovieView.propTypes = {
     Actors: _propTypes.default.array.isRequired
   })
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","./movie-view.scss":"components/movie-view/movie-view.scss"}],"../node_modules/react-bootstrap/esm/divWithClassName.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","axios":"../node_modules/axios/index.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","./movie-view.scss":"components/movie-view/movie-view.scss"}],"../node_modules/react-bootstrap/esm/divWithClassName.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38307,7 +38336,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62166" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

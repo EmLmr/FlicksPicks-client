@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,6 +10,26 @@ import Button from "react-bootstrap/Button";
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
+  addFavorite() {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+
+    axios
+      .post(
+        `https://flickspicks.herokuapp.com/users/${username}/movies/${this.props.movie._id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        alert("Movie succesfully added to favorites!");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -69,6 +90,11 @@ export class MovieView extends React.Component {
               <span className="value">{movie.Actors.join(", ")}</span>
             </div>
           </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Button variant="danger" className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
+            &#9825;
+          </Button>
         </Row>
       </div>
     );
