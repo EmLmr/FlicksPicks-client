@@ -111,7 +111,7 @@ export class MainView extends React.Component {
 
           {/*  USER PROFILE  */}
           <Route
-            path="/profile"
+            path="/users"
             render={() => {
               if (!user)
                 return (
