@@ -60,6 +60,16 @@
 .movie-view h3 {
   font-size: 1em;
 }
+
+.movie-description {
+  font-size: 1rem;
+}
+
+.fav-button {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  margin-top: 3rem;
+}
 .movie-card {
   width: 18rem;
 }
@@ -67,6 +77,10 @@
 .card-title h1 {
   font-size: 1.2em;
   font-family: "Oswald", sans-serif;
+}
+
+.card-description {
+  font-size: 1rem;
 }
 
 .genre-badge {

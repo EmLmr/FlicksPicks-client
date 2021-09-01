@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -15,12 +16,21 @@ export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios
+      .post("https://flickspicks.herokuapp.com/login", {
+        Username: username,
+        Password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log("no such user");
+      });
   };
 
   return (
@@ -45,6 +55,16 @@ export function LoginView(props) {
           <Button type="submit" size="lg" bsPrefix="submit-btn" onClick={handleSubmit}>
             Login
           </Button>
+        </Col>
+      </Row>
+      <Row className="redirect-row">
+        <Col className="text-center">
+          <div>
+            Don't have an account yet?
+            <Button className="text-center" variant="link" type="submit" href="/register">
+              Sign up
+            </Button>
+          </div>
         </Col>
       </Row>
     </Form>
