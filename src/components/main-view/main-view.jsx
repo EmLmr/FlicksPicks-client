@@ -9,6 +9,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
+import { NavBar } from "../navbar/navbar";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -73,6 +74,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
+        <NavBar user={user} />
         <Row className="main-view justify-content-md-center">
           {/*  ALL MOVIES / HOME PAGE */}
           <Route
