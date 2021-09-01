@@ -40224,6 +40224,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 var _Form = _interopRequireDefault(require("react-bootstrap/Form"));
 
 var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
@@ -40279,7 +40281,8 @@ function RegistrationView(props) {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    axios.post("https://flickspicks.herokuapp.com/users", {
+
+    _axios.default.post("https://flickspicks.herokuapp.com/users", {
       Username: username,
       Password: password,
       Email: email,
@@ -40364,7 +40367,7 @@ RegistrationView.propTypes = {
   }),
   onRegistration: _propTypes.default.func.isRequired
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Image":"../node_modules/react-bootstrap/esm/Image.js","./registration-view.scss":"components/registration-view/registration-view.scss","../../public/img/logo.png":"public/img/logo.png"}],"components/movie-view/movie-view.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Image":"../node_modules/react-bootstrap/esm/Image.js","./registration-view.scss":"components/registration-view/registration-view.scss","../../public/img/logo.png":"public/img/logo.png"}],"components/movie-view/movie-view.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
