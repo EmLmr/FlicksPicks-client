@@ -56,7 +56,7 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        alert(`${movie.Title} removed from favorites.`);
+        alert("Movie removed from favorites.");
         this.componentDidMount();
       })
       .catch(function (error) {
@@ -221,9 +221,9 @@ export class ProfileView extends React.Component {
                   return (
                     <CardGroup className="favorites-list">
                       <Card className="favorites-item card-content" key={movie._id}>
-                        <Card.Img className="movieCard" variant="top" src={movie.ImageURL} />
+                        <Card.Img className="movie-poster" variant="top" src={movie.ImageURL} />
                         <Card.Body>
-                          <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
+                          <Card.Title className="card-title">{movie.Title}</Card.Title>
                           <Button
                             size="sm"
                             className="profile-button remove-favorite"
@@ -255,6 +255,7 @@ ProfileView.propTypes = {
       })
     ),
     Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.string,
   }),

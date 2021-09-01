@@ -52086,7 +52086,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function () {
-        alert("".concat(movie.Title, " removed from favorites."));
+        alert("Movie removed from favorites.");
 
         _this3.componentDidMount();
       }).catch(function (error) {
@@ -52271,11 +52271,11 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
             className: "favorites-item card-content",
             key: movie._id
           }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.Img, {
-            className: "movieCard",
+            className: "movie-poster",
             variant: "top",
             src: movie.ImageURL
           }), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.Body, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.Title, {
-            className: "movie-card-title"
+            className: "card-title"
           }, movie.Title), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
             size: "sm",
             className: "profile-button remove-favorite",
@@ -52301,6 +52301,7 @@ ProfileView.propTypes = {
       Title: _propTypes.default.string.isRequired
     })),
     Username: _propTypes.default.string.isRequired,
+    Password: _propTypes.default.string.isRequired,
     Email: _propTypes.default.string.isRequired,
     Birthday: _propTypes.default.string
   })
