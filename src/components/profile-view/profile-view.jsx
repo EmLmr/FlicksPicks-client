@@ -221,7 +221,7 @@ export class ProfileView extends React.Component {
                   return (
                     <CardGroup className="favorites-list">
                       <Card className="favorites-item card-content" key={movie._id}>
-                        <Card.Img className="movie-poster" variant="top" src={movie.ImageURL} />
+                        <Card.Img className="movie-poster" variant="top" crossOrigin="anonymous" src={movie.ImageURL} />
                         <Card.Body>
                           <Card.Title className="card-title">{movie.Title}</Card.Title>
                           <Button
