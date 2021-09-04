@@ -44,14 +44,17 @@ export class NavBar extends React.Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav " />
             <Navbar.Collapse className="nav-elements " id="basic-navbar-nav hamburger-nav ">
               <Nav.Item>
-                <Nav.Link className="linkText" as={Link} to={movies}>
+                <Link className="linkText" to={`/`}>
                   Movies
-                </Nav.Link>
+                </Link>
+                <Link className="linkText" to={`/genres`}>
+                  Genres
+                </Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className="linkText" as={Link} to={profile}>
+                <Link className="linkText" to={`/users/:username`}>
                   Profile
-                </Nav.Link>
+                </Link>
               </Nav.Item>
               <Button
                 size="sm"

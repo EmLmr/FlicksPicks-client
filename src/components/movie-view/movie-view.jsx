@@ -10,6 +10,11 @@ import Button from "react-bootstrap/Button";
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   addFavorite() {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
@@ -66,7 +71,13 @@ export class MovieView extends React.Component {
             </div>
             <div className="movie-genre">
               <span className="label">Genre:</span>
-              <Link to={`/genres/${movie.Genre.Gname}`}>{movie.Genre.Gname}</Link>
+              {movie.Genre.map((Genre) => (
+                <Link key={Genre._id} to={`/genres/${Genre.Gname}`}>
+                  <Button className="link" variant="link">
+                    <h4>{Genre.Gname}</h4>
+                  </Button>
+                </Link>
+              ))}
             </div>
           </Col>
           <Col md={7}>
@@ -80,7 +91,13 @@ export class MovieView extends React.Component {
               <span className="label">
                 <h3>Directed by:</h3>{" "}
               </span>
-              <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
+              {movie.Director.map((Director) => (
+                <Link key={Director._id} to={`/directors/${Director.Name}`}>
+                  <Button className="link" variant="link">
+                    <h3>{Director.Name}</h3>
+                  </Button>
+                </Link>
+              ))}
             </div>
 
             <div className="movie-actors">
@@ -106,13 +123,9 @@ MovieView.propTypes = {
     Title: PropTypes.string.isRequired,
     ImageURL: PropTypes.string.isRequired,
     Year: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Gname: PropTypes.string.isRequired,
-    }),
+    Genre: PropTypes.array.isRequired,
     Description: PropTypes.string.isRequired,
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
+    Director: PropTypes.array.isRequired,
     Actors: PropTypes.array.isRequired,
   }),
 };

@@ -4,17 +4,17 @@ import Button from "react-bootstrap";
 
 export class GenreView extends React.Component {
   render() {
-    const { movie, onBackClick } = this.props;
+    const { genre } = this.props;
 
     return (
       <div className="genre-view">
         <div className="genre-name">
           <h1>
-            <span className="value">{movie.Genre.Gname}</span>
+            <span className="value">{genre.Gname}</span>
           </h1>
         </div>
         <div className="genre-description">
-          <span className="value">{movie.Genre.Gdescription}</span>
+          <span className="value">{genre.Gdescription}</span>
         </div>
 
         <Button
@@ -36,5 +36,3 @@ GenreView.propTypes = {
     Gdescription: propTypes.string.isRequired,
   }).isRequired,
 };
-
-export default GenreView;

@@ -20,6 +20,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
+      // genres: [],
       user: null,
       register: true,
     };
@@ -32,6 +33,7 @@ export class MainView extends React.Component {
         user: localStorage.getItem("user"),
       });
       this.getMovies(accessToken);
+      this.getGenres(accessToken);
     }
   }
 
@@ -45,6 +47,23 @@ export class MainView extends React.Component {
         this.setState({
           movies: response.data,
         });
+        console.log("Movies:", response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  getGenres(token) {
+    axios
+      .get("https://flickspicks.herokuapp.com/genres", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.setState({
+          genres: response.data,
+        });
+        console.log("Genres:", response);
       })
       .catch(function (error) {
         console.log(error);
@@ -71,7 +90,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user, genres } = this.state;
 
     return (
       <Router>
@@ -88,7 +107,6 @@ export class MainView extends React.Component {
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
-              if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
                 <Col sm={12} md={6} lg={4} key={m._id}>
                   <MovieCard movie={m} />
@@ -111,7 +129,7 @@ export class MainView extends React.Component {
 
           {/*  USER PROFILE  */}
           <Route
-            path="/users"
+            path="/profile"
             render={() => {
               if (!user)
                 return (
@@ -183,7 +201,7 @@ export class MainView extends React.Component {
           {/* GENRE */}
 
           <Route
-            path="/genres/:name"
+            path="/genres/:Gname"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -195,11 +213,22 @@ export class MainView extends React.Component {
               return (
                 <Col md={8}>
                   <GenreView
-                    genre={movies.find((m) => m.Genre.Gname === match.params.name).Genre}
+                    genre={genres.find((m) => m.Gname === match.params.Gname)}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
               );
+            }}
+          />
+          <Route
+            exact
+            path="/genres"
+            render={() => {
+              return genres.map((m) => (
+                <Col md={8} key={m._id}>
+                  <GenreView genre={m} />
+                </Col>
+              ));
             }}
           />
         </Row>
