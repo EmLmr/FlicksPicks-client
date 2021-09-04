@@ -21,6 +21,7 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       // genres: [],
+      //directors: [],
       user: null,
       register: true,
     };
@@ -34,6 +35,7 @@ export class MainView extends React.Component {
       });
       this.getMovies(accessToken);
       this.getGenres(accessToken);
+      this.getDirectors(accessToken);
     }
   }
 
@@ -70,6 +72,22 @@ export class MainView extends React.Component {
       });
   }
 
+  getDirectors(token) {
+    axios
+      .get("https://flickspicks.herokuapp.com/directors", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.setState({
+          directors: response.data,
+        });
+        console.log("Directors:", response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -90,7 +108,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, genres } = this.state;
+    const { movies, user, genres, directors } = this.state;
 
     return (
       <Router>
@@ -190,11 +208,22 @@ export class MainView extends React.Component {
               return (
                 <Col md={8}>
                   <DirectorView
-                    director={movies.find((m) => m.Director.Name === match.params.name).Director}
+                    director={directors.find((m) => m.Name === match.params.name)}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
               );
+            }}
+          />
+          <Route
+            exact
+            path="/directors"
+            render={() => {
+              return directors.map((m) => (
+                <Col md={12} xl={6} key={m._id}>
+                  <DirectorView director={m} />
+                </Col>
+              ));
             }}
           />
 

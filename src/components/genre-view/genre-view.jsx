@@ -4,7 +4,7 @@ import Button from "react-bootstrap";
 
 export class GenreView extends React.Component {
   render() {
-    const { genre } = this.props;
+    const { genre, onBackClick } = this.props;
 
     return (
       <div className="genre-view">

@@ -22774,6 +22774,7 @@ class MainView extends _reactDefault.default.Component {
         this.state = {
             movies: [],
             // genres: [],
+            //directors: [],
             user: null,
             register: true
         };
@@ -22786,6 +22787,7 @@ class MainView extends _reactDefault.default.Component {
             });
             this.getMovies(accessToken);
             this.getGenres(accessToken);
+            this.getDirectors(accessToken);
         }
     }
     getMovies(token) {
@@ -22817,6 +22819,20 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
+    getDirectors(token) {
+        _axiosDefault.default.get("https://flickspicks.herokuapp.com/directors", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                directors: response.data
+            });
+            console.log("Directors:", response);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
@@ -22834,11 +22850,11 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , user , genres  } = this.state;
+        const { movies , user , genres , directors  } = this.state;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 96
+                lineNumber: 114
             },
             __self: this,
             children: [
@@ -22846,7 +22862,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 97
+                        lineNumber: 115
                     },
                     __self: this
                 }),
@@ -22854,7 +22870,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 98
+                        lineNumber: 116
                     },
                     __self: this,
                     children: [
@@ -22879,7 +22895,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 100
+                                lineNumber: 118
                             },
                             __self: this
                         }),
@@ -22896,7 +22912,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 118
+                                lineNumber: 136
                             },
                             __self: this
                         }),
@@ -22910,7 +22926,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 131
+                                lineNumber: 149
                             },
                             __self: this
                         }),
@@ -22936,7 +22952,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 143
+                                lineNumber: 161
                             },
                             __self: this
                         }),
@@ -22962,7 +22978,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 158
+                                lineNumber: 176
                             },
                             __self: this
                         }),
@@ -22980,15 +22996,34 @@ class MainView extends _reactDefault.default.Component {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 8,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_directorView.DirectorView, {
-                                        director: movies.find((m)=>m.Director.Name === match.params.name
-                                        ).Director,
+                                        director: directors.find((m)=>m.Name === match.params.name
+                                        ),
                                         onBackClick: ()=>history.goBack()
                                     })
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 180
+                                lineNumber: 198
+                            },
+                            __self: this
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/directors",
+                            render: ()=>{
+                                return directors.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                        md: 12,
+                                        xl: 6,
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_directorView.DirectorView, {
+                                            director: m
+                                        })
+                                    }, m._id)
+                                );
+                            },
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 218
                             },
                             __self: this
                         }),
@@ -23014,7 +23049,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 203
+                                lineNumber: 232
                             },
                             __self: this
                         }),
@@ -23032,7 +23067,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 223
+                                lineNumber: 252
                             },
                             __self: this
                         })
@@ -27576,51 +27611,45 @@ class NavBar extends _reactDefault.default.Component {
                                 },
                                 __self: this,
                                 children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsxs(_navDefault.default.Item, {
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "linkText",
+                                        to: `/`,
                                         __source: {
                                             fileName: "src/components/navbar/navbar.jsx",
                                             lineNumber: 46
                                         },
                                         __self: this,
-                                        children: [
-                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                                className: "linkText",
-                                                to: `/`,
-                                                __source: {
-                                                    fileName: "src/components/navbar/navbar.jsx",
-                                                    lineNumber: 47
-                                                },
-                                                __self: this,
-                                                children: "Movies"
-                                            }),
-                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                                className: "linkText",
-                                                to: `/genres`,
-                                                __source: {
-                                                    fileName: "src/components/navbar/navbar.jsx",
-                                                    lineNumber: 50
-                                                },
-                                                __self: this,
-                                                children: "Genres"
-                                            })
-                                        ]
+                                        children: "Movies"
                                     }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Item, {
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "linkText",
+                                        to: `/genres`,
                                         __source: {
                                             fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 54
+                                            lineNumber: 49
                                         },
                                         __self: this,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                            className: "linkText",
-                                            to: `/users/:username`,
-                                            __source: {
-                                                fileName: "src/components/navbar/navbar.jsx",
-                                                lineNumber: 55
-                                            },
-                                            __self: this,
-                                            children: "Profile"
-                                        })
+                                        children: "Genres"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "linkText",
+                                        to: `/directors`,
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 52
+                                        },
+                                        __self: this,
+                                        children: "Directors"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "linkText",
+                                        to: `/users/:username`,
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 55
+                                        },
+                                        __self: this,
+                                        children: "Profile"
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                         size: "sm",
@@ -32448,7 +32477,8 @@ parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-// import propTypes from "prop-types";
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 class DirectorView extends _reactDefault.default.Component {
@@ -32536,6 +32566,14 @@ class DirectorView extends _reactDefault.default.Component {
         }));
     }
 }
+DirectorView.propTypes = {
+    director: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Bio: _propTypesDefault.default.string.isRequired,
+        Born: _propTypesDefault.default.instanceOf(Date).isRequired,
+        Died: _propTypesDefault.default.instanceOf(Date)
+    }).isRequired
+};
 exports.default = DirectorView;
 
   $parcel$ReactRefreshHelpers$f8cc.postlude(module);
@@ -32543,7 +32581,7 @@ exports.default = DirectorView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J"}],"8WCoL":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","prop-types":"1tgq3"}],"8WCoL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5f0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -32563,7 +32601,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactBootstrapDefault = parcelHelpers.interopDefault(_reactBootstrap);
 class GenreView extends _reactDefault.default.Component {
     render() {
-        const { genre  } = this.props;
+        const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "genre-view",
             __source: {
