@@ -26,7 +26,7 @@ export class ProfileView extends React.Component {
     }
   }
 
-  // get user method
+  // get user
   getUser(token) {
     const username = localStorage.getItem("user");
     axios
@@ -56,7 +56,7 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        alert("Movie removed from favorites.");
+        alert("Movie removed from favorites!");
         this.componentDidMount();
       })
       .catch(function (error) {
@@ -64,7 +64,8 @@ export class ProfileView extends React.Component {
       });
   }
 
-  updateProfile(e, newUsername, newPassword, newEmail, newBirthday) {
+  updateProfile(e) {
+    e.preventDefault();
     this.setState({
       validated: null,
     });
@@ -78,21 +79,21 @@ export class ProfileView extends React.Component {
       });
       return;
     }
-    e.preventDefault();
 
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
     axios
-      .put(`https://flickspicks.herokuapp.com/users/${username}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        data: {
-          Username: newUsername ? newUsername : this.state.Username,
-          Password: newPassword ? newPassword : this.state.Password,
-          Email: newEmail ? newEmail : this.state.Email,
-          Birthday: newBirthday ? newBirthday : this.state.Birthday,
+      .put(
+        `https://flickspicks.herokuapp.com/users/${username}`,
+        {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday,
         },
-      })
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((response) => {
         alert("User profile successfully updated.");
         this.setState({
@@ -108,21 +109,17 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
-
   setUsername(input) {
-    this.Username = input;
+    this.state.Username = input;
   }
-
   setPassword(input) {
-    this.Password = input;
+    this.state.Password = input;
   }
-
   setEmail(input) {
-    this.Email = input;
+    this.state.Email = input;
   }
-
   setBirthday(input) {
-    this.Birthday = input;
+    this.state.Birthday = input;
   }
 
   deleteProfile(e) {
@@ -152,43 +149,52 @@ export class ProfileView extends React.Component {
 
     return (
       <div className="profile-view ">
-        <Form
-          noValidate
-          validated={validated}
-          className="update-form"
-          onSubmit={(e) => this.updateProfile(e, this.Username, this.Password, this.Email, this.Birthday)}
-        >
+        <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.updateProfile(e)}>
           <Row className="update-profile">
             <Col>
               <h1>Update profile:</h1>
               <Form.Group controlId="formBasicUsername">
-                <Form.Label className="form-label">Username:</Form.Label>
+                <Form.Label controlId="username" className="form-label" label="Username">
+                  Username:
+                </Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="New Username"
-                  onChange={(e) => this.setUsername(e.target.value)}
+                  value={this.state.Username}
+                  onChange={(e) => this.setState({ Username: e.target.value })}
                 />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Label className="form-label">
+                <Form.Label controlId="username" className="form-label" label="Password">
                   Password:<span className="required">*</span>
                 </Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="New Password"
-                  onChange={(e) => this.setPassword(e.target.value)}
+                  value={this.state.Password}
+                  onChange={(e) => this.setState({ Password: e.target.value })}
                 />
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
-                <Form.Label className="form-label">Email:</Form.Label>
-                <Form.Control type="email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} />
+                <Form.Label controlId="username" className="form-label" label="Email">
+                  Email:
+                </Form.Label>
+                <Form.Control
+                  type="email"
+                  value={this.state.Email}
+                  onChange={(e) => this.setState({ Email: e.target.value })}
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicBirthday">
-                <Form.Label className="form-label">Birthday:</Form.Label>
-                <Form.Control type="date" onChange={(e) => this.setBirthday(e.target.value)} />
+                <Form.Label controlId="username" className="form-label" label="Birthday">
+                  Birthday:
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  value={this.state.Birthday}
+                  onChange={(e) => this.setState({ Birthday: e.target.value })}
+                />
               </Form.Group>
             </Col>
           </Row>
@@ -229,7 +235,7 @@ export class ProfileView extends React.Component {
                             className="profile-button remove-favorite"
                             variant="danger"
                             value={movie._id}
-                            onClick={(e) => this.removeFavorite(e, movie)}
+                            onClick={(e) => this.removeFavorite()}
                           >
                             Remove
                           </Button>
@@ -257,6 +263,6 @@ ProfileView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string,
+    Birthday: PropTypes.string.isRequired,
   }),
 };
