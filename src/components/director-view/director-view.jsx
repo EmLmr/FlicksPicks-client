@@ -2,6 +2,9 @@ import React from "react";
 import propTypes from "prop-types";
 
 import Button from "react-bootstrap/Button";
+import { Row, Col } from "react-bootstrap";
+
+import "../director-view/director-view.scss";
 
 export class DirectorView extends React.Component {
   render() {
@@ -9,25 +12,40 @@ export class DirectorView extends React.Component {
 
     return (
       <div className="director-view">
-        <div className="director-name">
-          <h1>
-            <span className="value">{director.Name}</span>
-          </h1>
-        </div>
-        <div className="director-bio">
-          <span className="value">{director.Bio}</span>
+        <Row>
+          <Col>
+            <Button
+              variant="dark"
+              onClick={() => {
+                onBackClick(null);
+              }}
+            >
+              Back
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <div className="director-name">
+            <span className="value">
+              <h1>{director.Name}</h1>
+            </span>
+          </div>
+        </Row>
+        <Row>
+          <div className="director-bio">
+            <span className="label">
+              <h2>Bio:</h2>
+            </span>
+            <span className="value">{director.Bio}</span>
+          </div>
+        </Row>
+
+        <div className="director-born">
+          <span className="value">Born: {director.Born}</span>
         </div>
         <div className="director-born">
-          <span className="value">{director.Born}</span>
+          <span className="value">Died: {director.Died}</span>
         </div>
-        <Button
-          variant="primary"
-          onClick={() => {
-            onBackClick(null);
-          }}
-        >
-          Back
-        </Button>
       </div>
     );
   }
@@ -41,5 +59,3 @@ DirectorView.propTypes = {
     Died: propTypes.instanceOf(Date),
   }).isRequired,
 };
-
-export default DirectorView;

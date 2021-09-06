@@ -109,6 +109,11 @@ h3 {
   height: 17rem;
   object-fit: contain;
 }
+.director-name h1 {
+  font-size: 2.5em;
+  font-family: "Oswald", sans-serif;
+  margin: 2rem 0;
+}
 h1,
 h3 {
   font-family: "Oswald", sans-serif;
