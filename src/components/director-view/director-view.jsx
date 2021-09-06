@@ -39,13 +39,16 @@ export class DirectorView extends React.Component {
             <span className="value">{director.Bio}</span>
           </div>
         </Row>
-
-        <div className="director-born">
-          <span className="value">Born: {director.Born}</span>
-        </div>
-        <div className="director-born">
-          <span className="value">Died: {director.Died}</span>
-        </div>
+        <Row>
+          <div className="director-born">
+            <span className="value">Born: {director.Born}</span>
+          </div>
+        </Row>
+        <Row>
+          <div className="director-born">
+            <span className="value">Died: {director.Died}</span>
+          </div>
+        </Row>
       </div>
     );
   }
@@ -55,7 +58,7 @@ DirectorView.propTypes = {
   director: propTypes.shape({
     Name: propTypes.string.isRequired,
     Bio: propTypes.string.isRequired,
-    Born: propTypes.instanceOf(Date).isRequired,
-    Died: propTypes.instanceOf(Date),
+    Born: propTypes.string.isRequired,
+    Died: propTypes.string,
   }).isRequired,
 };
