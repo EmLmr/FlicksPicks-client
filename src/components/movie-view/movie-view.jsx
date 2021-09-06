@@ -12,7 +12,11 @@ import "./movie-view.scss";
 export class MovieView extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      movies: [],
+      genres: [],
+      directors: [],
+    };
   }
 
   addFavorite() {
@@ -36,7 +40,7 @@ export class MovieView extends React.Component {
   }
 
   render() {
-    const { movie, onBackClick } = this.props;
+    const { movie, genre, director, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
@@ -71,10 +75,10 @@ export class MovieView extends React.Component {
             </div>
             <div className="movie-genre">
               <span className="label">Genre:</span>
-              {movie.Genre.map((Genre) => (
-                <Link key={Genre._id} to={`/genres/${Genre.Gname}`}>
+              {genres.map((genre) => (
+                <Link key={genre._id} to={`/genres/${genre._id}`}>
                   <Button className="link" variant="link">
-                    <h4>{Genre.Gname}</h4>
+                    <h4>{genre.Gname}</h4>
                   </Button>
                 </Link>
               ))}
@@ -91,10 +95,10 @@ export class MovieView extends React.Component {
               <span className="label">
                 <h3>Directed by:</h3>{" "}
               </span>
-              {movie.Director.map((Director) => (
-                <Link key={Director._id} to={`/directors/${Director.Name}`}>
+              {directors.map((director) => (
+                <Link key={director._id} to={`/directors/${director._id}`}>
                   <Button className="link" variant="link">
-                    <h3>{Director.Name}</h3>
+                    <h3>{director.Name}</h3>
                   </Button>
                 </Link>
               ))}
