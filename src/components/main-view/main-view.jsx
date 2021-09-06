@@ -20,8 +20,8 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      // genres: [],
-      //directors: [],
+      genres: [],
+      directors: [],
       user: null,
       register: true,
     };
@@ -97,6 +97,8 @@ export class MainView extends React.Component {
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
+    this.getGenres(authData.token);
+    this.getDirectors(authData.token);
   }
 
   onLoggedOut() {
@@ -196,7 +198,7 @@ export class MainView extends React.Component {
 
           {/* DIRECTOR */}
           <Route
-            path="/directors/:name"
+            path="/directors/:directorId"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -208,7 +210,7 @@ export class MainView extends React.Component {
               return (
                 <Col md={8}>
                   <DirectorView
-                    director={directors.find((m) => m.Name === match.params.name)}
+                    director={directors.find((m) => m._id === match.params.directorId)}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
@@ -230,7 +232,7 @@ export class MainView extends React.Component {
           {/* GENRE */}
 
           <Route
-            path="/genres/:Gname"
+            path="/genres/:genreId"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -242,7 +244,7 @@ export class MainView extends React.Component {
               return (
                 <Col md={8}>
                   <GenreView
-                    genre={genres.find((m) => m.Gname === match.params.Gname)}
+                    genre={genres.find((m) => m._id === match.params.genreId)}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
