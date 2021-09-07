@@ -12,7 +12,7 @@ export class GenreView extends React.Component {
 
     return (
       <div className="genre-view">
-        <Row>
+        {/* <Row>
           <Col>
             <Button
               variant="dark"
@@ -23,7 +23,7 @@ export class GenreView extends React.Component {
               Back
             </Button>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <div className="genre-name">
             <span className="value">

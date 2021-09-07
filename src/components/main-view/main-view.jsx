@@ -14,6 +14,7 @@ import { ProfileView } from "../profile-view/profile-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export class MainView extends React.Component {
   constructor() {
@@ -210,7 +211,7 @@ export class MainView extends React.Component {
                 );
               if (movies.length === 0) return <div className="main-view" />;
               return (
-                <Col md={8}>
+                <Col md={8} xs={10}>
                   <DirectorView
                     director={directors.find((m) => m._id === match.params.directorId)}
                     onBackClick={() => history.goBack()}
@@ -224,7 +225,7 @@ export class MainView extends React.Component {
             path="/directors"
             render={() => {
               return directors.map((m) => (
-                <Col md={12} xl={6} key={m._id}>
+                <Col md={8} xs={10}>
                   <DirectorView director={m} />
                 </Col>
               ));
@@ -244,7 +245,7 @@ export class MainView extends React.Component {
                 );
               if (movies.length === 0) return <div className="main-view" />;
               return (
-                <Col md={8}>
+                <Col md={8} xs={10}>
                   <GenreView
                     genre={genres.find((m) => m._id === match.params.genreId)}
                     onBackClick={() => history.goBack()}
@@ -258,7 +259,7 @@ export class MainView extends React.Component {
             path="/genres"
             render={() => {
               return genres.map((m) => (
-                <Col md={8} key={m._id}>
+                <Col md={8} xs={10}>
                   <GenreView genre={m} />
                 </Col>
               ));

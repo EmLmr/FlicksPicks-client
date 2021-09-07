@@ -12,7 +12,7 @@ export class DirectorView extends React.Component {
 
     return (
       <div className="director-view">
-        <Row>
+        {/* <Row>
           <Col>
             <Button
               variant="dark"
@@ -23,7 +23,7 @@ export class DirectorView extends React.Component {
               Back
             </Button>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <div className="director-name">
             <span className="value">
@@ -33,9 +33,7 @@ export class DirectorView extends React.Component {
         </Row>
         <Row>
           <div className="director-bio">
-            <span className="label">
-              <h2>Bio:</h2>
-            </span>
+            <span className="label"></span>
             <span className="value">{director.Bio}</span>
           </div>
         </Row>
@@ -45,7 +43,7 @@ export class DirectorView extends React.Component {
           </div>
         </Row>
         <Row>
-          <div className="director-born">
+          <div className="director-died">
             <span className="value">Died: {director.Died}</span>
           </div>
         </Row>

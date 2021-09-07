@@ -22768,6 +22768,8 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -22856,7 +22858,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 116
+                lineNumber: 117
             },
             __self: this,
             children: [
@@ -22864,7 +22866,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 117
+                        lineNumber: 118
                     },
                     __self: this
                 }),
@@ -22872,7 +22874,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 118
+                        lineNumber: 119
                     },
                     __self: this,
                     children: [
@@ -22897,7 +22899,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 120
+                                lineNumber: 121
                             },
                             __self: this
                         }),
@@ -22914,7 +22916,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 138
+                                lineNumber: 139
                             },
                             __self: this
                         }),
@@ -22928,7 +22930,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 151
+                                lineNumber: 152
                             },
                             __self: this
                         }),
@@ -22954,7 +22956,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 163
+                                lineNumber: 164
                             },
                             __self: this
                         }),
@@ -22983,7 +22985,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 178
+                                lineNumber: 179
                             },
                             __self: this
                         }),
@@ -23000,6 +23002,7 @@ class MainView extends _reactDefault.default.Component {
                                 }));
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 8,
+                                    xs: 10,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_directorView.DirectorView, {
                                         director: directors.find((m)=>m._id === match.params.directorId
                                         ),
@@ -23009,7 +23012,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 202
+                                lineNumber: 203
                             },
                             __self: this
                         }),
@@ -23018,17 +23021,17 @@ class MainView extends _reactDefault.default.Component {
                             path: "/directors",
                             render: ()=>{
                                 return directors.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                        md: 12,
-                                        xl: 6,
+                                        md: 8,
+                                        xs: 10,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_directorView.DirectorView, {
                                             director: m
                                         })
-                                    }, m._id)
+                                    })
                                 );
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 222
+                                lineNumber: 223
                             },
                             __self: this
                         }),
@@ -23045,6 +23048,7 @@ class MainView extends _reactDefault.default.Component {
                                 }));
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 8,
+                                    xs: 10,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_genreView.GenreView, {
                                         genre: genres.find((m)=>m._id === match.params.genreId
                                         ),
@@ -23054,7 +23058,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 236
+                                lineNumber: 237
                             },
                             __self: this
                         }),
@@ -23064,15 +23068,16 @@ class MainView extends _reactDefault.default.Component {
                             render: ()=>{
                                 return genres.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                         md: 8,
+                                        xs: 10,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_genreView.GenreView, {
                                             genre: m
                                         })
-                                    }, m._id)
+                                    })
                                 );
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 256
+                                lineNumber: 257
                             },
                             __self: this
                         })
@@ -23089,7 +23094,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../navbar/navbar":"63yS7","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","../movie-view/movie-view":"ikZdr","../movie-card/movie-card":"6EiBJ","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../navbar/navbar":"63yS7","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","../movie-view/movie-view":"ikZdr","../movie-card/movie-card":"6EiBJ","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","react-bootstrap/Button":"9CzHT"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -32475,32 +32480,6 @@ class DirectorView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 15
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                        __source: {
-                            fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                            variant: "dark",
-                            onClick: ()=>{
-                                onBackClick(null);
-                            },
-                            __source: {
-                                fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 17
-                            },
-                            __self: this,
-                            children: "Back"
-                        })
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    __source: {
-                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 27
                     },
                     __self: this,
@@ -32549,21 +32528,13 @@ class DirectorView extends _reactDefault.default.Component {
                                     fileName: "src/components/director-view/director-view.jsx",
                                     lineNumber: 36
                                 },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx("h2", {
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 37
-                                    },
-                                    __self: this,
-                                    children: "Bio:"
-                                })
+                                __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                 className: "value",
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 39
+                                    lineNumber: 37
                                 },
                                 __self: this,
                                 children: director.Bio
@@ -32574,21 +32545,21 @@ class DirectorView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 42
+                        lineNumber: 40
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
                         className: "director-born",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 43
+                            lineNumber: 41
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 44
+                                lineNumber: 42
                             },
                             __self: this,
                             children: [
@@ -32601,21 +32572,21 @@ class DirectorView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 47
+                        lineNumber: 45
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                        className: "director-born",
+                        className: "director-died",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 48
+                            lineNumber: 46
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 49
+                                lineNumber: 47
                             },
                             __self: this,
                             children: [
@@ -40894,32 +40865,6 @@ class GenreView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    __source: {
-                        fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 15
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                        __source: {
-                            fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                            variant: "dark",
-                            onClick: ()=>{
-                                onBackClick(null);
-                            },
-                            __source: {
-                                fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 17
-                            },
-                            __self: this,
-                            children: "Back"
-                        })
-                    })
-                }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
