@@ -10,15 +10,6 @@ import Button from "react-bootstrap/Button";
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      movies: [],
-      genres: [],
-      directors: [],
-    };
-  }
-
   addFavorite() {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
@@ -75,11 +66,11 @@ export class MovieView extends React.Component {
             </div>
             <div className="movie-genre">
               <span className="label">Genre:</span>
-              {/* <Link key={genre._id} to={`/genres/${genre._id}`}> */}
-              <Button className="link" variant="link">
-                {genres.find((g) => g._id === movie.Genre[0]).Gname}
-              </Button>
-              {/* </Link> */}
+              <Link to={`/genres/${movie.Genre[0]}`}>
+                <Button className="link" variant="link">
+                  {genres.find((g) => g._id === movie.Genre[0]).Gname}
+                </Button>
+              </Link>
             </div>
           </Col>
           <Col md={7}>
@@ -94,11 +85,11 @@ export class MovieView extends React.Component {
                 <h3>Directed by:</h3>{" "}
               </span>
 
-              {/* <Link key={director._id} to={`/directors/${director._id}`}> */}
-              <Button className="link" variant="link">
-                {directors.find((d) => d._id === movie.Director[0]).Name}
-              </Button>
-              {/* </Link> */}
+              <Link to={`/directors/${movie.Director[0]}`}>
+                <Button className="link" variant="link">
+                  {directors.find((d) => d._id === movie.Director[0]).Name}
+                </Button>
+              </Link>
             </div>
 
             <div className="movie-actors">
