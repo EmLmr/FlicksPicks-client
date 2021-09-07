@@ -40,7 +40,7 @@ export class MovieView extends React.Component {
   }
 
   render() {
-    const { movie, genre, director, onBackClick } = this.props;
+    const { movie, genres, directors, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
@@ -75,13 +75,11 @@ export class MovieView extends React.Component {
             </div>
             <div className="movie-genre">
               <span className="label">Genre:</span>
-              {genres.map((genre) => (
-                <Link key={genre._id} to={`/genres/${genre._id}`}>
-                  <Button className="link" variant="link">
-                    <h4>{genre.Gname}</h4>
-                  </Button>
-                </Link>
-              ))}
+              {/* <Link to={`/directors/${movie.Director._id}`}> */}
+              <Button className="link" variant="link">
+                {genres.find((g) => g._id === movie.Genre[0]).Gname}
+              </Button>
+              {/* </Link> */}
             </div>
           </Col>
           <Col md={7}>
@@ -95,13 +93,12 @@ export class MovieView extends React.Component {
               <span className="label">
                 <h3>Directed by:</h3>{" "}
               </span>
-              {directors.map((director) => (
-                <Link key={director._id} to={`/directors/${director._id}`}>
-                  <Button className="link" variant="link">
-                    <h3>{director.Name}</h3>
-                  </Button>
-                </Link>
-              ))}
+
+              {/* <Link to={`/directors/${movie.Director._id}`}> */}
+              <Button className="link" variant="link">
+                {directors.find((d) => d._id === movie.Director[0]).Name}
+              </Button>
+              {/* </Link> */}
             </div>
 
             <div className="movie-actors">

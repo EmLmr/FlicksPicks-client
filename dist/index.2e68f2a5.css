@@ -65,6 +65,7 @@ h3 {
 .movie-view h1 {
   font-size: 3em;
   font-family: "Oswald", sans-serif;
+  margin: 1.5rem 0;
 }
 
 .movie-view h2 {
@@ -73,6 +74,7 @@ h3 {
 
 .movie-view h3 {
   font-size: 1em;
+  margin-top: 1.5rem;
 }
 
 .movie-description {
