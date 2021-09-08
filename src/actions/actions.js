@@ -50,9 +50,9 @@ export function updateUser(userData) {
   };
 }
 
-export function updateFavorites(favoriteMovie) {
+export function updateFavorites(favoriteMovies) {
   return {
     type: UPDATE_FAVORITES,
-    favoriteMovie,
+    favoriteMovies,
   };
 }
