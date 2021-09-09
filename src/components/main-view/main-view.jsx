@@ -14,7 +14,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from "../profile-view/profile-view";
-import MoviesList from "../movies-list/movies-list";
+import MoviesList from "../movies-list/movies-list.jsx";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -134,11 +134,7 @@ class MainView extends React.Component {
                   </Col>
                 );
               if (movies.length === 0) return <div className="main-view" />;
-              return (
-                <Col sm={12} md={6} lg={4} key={m._id}>
-                  <MoviesList movies={movies} />;
-                </Col>
-              );
+              return <MoviesList movies={movies} />;
             }}
           />
           {/*  USER REGISTRATION */}

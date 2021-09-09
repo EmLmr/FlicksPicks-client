@@ -22776,8 +22776,8 @@ var _movieView = require("../movie-view/movie-view");
 var _directorView = require("../director-view/director-view");
 var _genreView = require("../genre-view/genre-view");
 var _profileView = require("../profile-view/profile-view");
-var _moviesList = require("../movies-list/movies-list");
-var _moviesListDefault = parcelHelpers.interopDefault(_moviesList);
+var _moviesListJsx = require("../movies-list/movies-list.jsx");
+var _moviesListJsxDefault = parcelHelpers.interopDefault(_moviesListJsx);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -22905,17 +22905,9 @@ class MainView extends _reactDefault.default.Component {
                                 if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     className: "main-view"
                                 }));
-                                return(/*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
-                                    sm: 12,
-                                    md: 6,
-                                    lg: 4,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_moviesListDefault.default, {
-                                            movies: movies
-                                        }),
-                                        ";"
-                                    ]
-                                }, m._id));
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_moviesListJsxDefault.default, {
+                                    movies: movies
+                                }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
@@ -22936,7 +22928,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 145
+                                lineNumber: 141
                             },
                             __self: this
                         }),
@@ -22950,7 +22942,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 158
+                                lineNumber: 154
                             },
                             __self: this
                         }),
@@ -22976,7 +22968,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 170
+                                lineNumber: 166
                             },
                             __self: this
                         }),
@@ -23005,7 +22997,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 185
+                                lineNumber: 181
                             },
                             __self: this
                         }),
@@ -23032,7 +23024,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 209
+                                lineNumber: 205
                             },
                             __self: this
                         }),
@@ -23051,7 +23043,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 229
+                                lineNumber: 225
                             },
                             __self: this
                         }),
@@ -23078,7 +23070,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 243
+                                lineNumber: 239
                             },
                             __self: this
                         }),
@@ -23097,7 +23089,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 263
+                                lineNumber: 259
                             },
                             __self: this
                         })
@@ -23121,7 +23113,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../navbar/navbar":"63yS7","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","../movie-view/movie-view":"ikZdr","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","react-bootstrap/Button":"9CzHT","react-redux":"2L0if","../../actions/actions":"1Ttfj","../movies-list/movies-list":"1kGQ5"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../navbar/navbar":"63yS7","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","../movie-view/movie-view":"ikZdr","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","react-bootstrap/Button":"9CzHT","react-redux":"2L0if","../../actions/actions":"1Ttfj","../movies-list/movies-list.jsx":"1kGQ5"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -42561,38 +42553,48 @@ parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
-parcelHelpers.export(exports, "SET_GENRES", ()=>SET_GENRES
-);
-parcelHelpers.export(exports, "SET_DIRECTORS", ()=>SET_DIRECTORS
-);
-parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
-);
-parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
-);
-parcelHelpers.export(exports, "UPDATE_FAVORITES", ()=>UPDATE_FAVORITES
-);
+// export const SET_GENRES = "SET_GENRES";
+// export const SET_DIRECTORS = "SET_DIRECTORS";
+// export const SET_USER = "SET_USER";
+// export const UPDATE_USER = "UPDATE_USER";
+// export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
 // ACTION CREATORS
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
-);
-parcelHelpers.export(exports, "setGenres", ()=>setGenres
-);
-parcelHelpers.export(exports, "setDirectors", ()=>setDirectors
-);
-parcelHelpers.export(exports, "setUser", ()=>setUser
-);
-parcelHelpers.export(exports, "updateUser", ()=>updateUser
-);
-parcelHelpers.export(exports, "updateFavorites", ()=>updateFavorites
-);
+) // export function setGenres(genres) {
+ //   return {
+ //     type: SET_GENRES,
+ //     genres,
+ //   };
+ // }
+ // export function setDirectors(directors) {
+ //   return {
+ //     type: SET_DIRECTORS,
+ //     directors,
+ //   };
+ // }
+ // export function setUser(user) {
+ //   return {
+ //     type: SET_USER,
+ //     user,
+ //   };
+ // }
+ // export function updateUser(userData) {
+ //   return {
+ //     type: UPDATE_USER,
+ //     userData,
+ //   };
+ // }
+ // export function updateFavorites(favoriteMovies) {
+ //   return {
+ //     type: UPDATE_FAVORITES,
+ //     favoriteMovies,
+ //   };
+ // }
+;
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
-const SET_GENRES = "SET_GENRES";
-const SET_DIRECTORS = "SET_DIRECTORS";
-const SET_USER = "SET_USER";
-const UPDATE_USER = "UPDATE_USER";
-const UPDATE_FAVORITES = "UPDATE_FAVORITES";
 function setMovies(movies) {
     return {
         type: SET_MOVIES,
@@ -42603,36 +42605,6 @@ function setFilter(value) {
     return {
         type: SET_FILTER,
         value
-    };
-}
-function setGenres(genres) {
-    return {
-        type: SET_GENRES,
-        genres
-    };
-}
-function setDirectors(directors) {
-    return {
-        type: SET_DIRECTORS,
-        directors
-    };
-}
-function setUser(user) {
-    return {
-        type: SET_USER,
-        user
-    };
-}
-function updateUser(userData) {
-    return {
-        type: UPDATE_USER,
-        userData
-    };
-}
-function updateFavorites(favoriteMovies) {
-    return {
-        type: UPDATE_FAVORITES,
-        favoriteMovies
     };
 }
 
@@ -42672,7 +42644,9 @@ function MoviesList(props) {
         __self: this
     }));
     return filteredMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-            md: 3,
+            sm: 12,
+            md: 6,
+            xl: 4,
             __source: {
                 fileName: "src/components/movies-list/movies-list.jsx",
                 lineNumber: 23
@@ -43408,46 +43382,41 @@ function visibilityFilter(state = "", action) {
             return state;
     }
 }
-// reducer to update the genres when the action is dispatched
-function genres(state = [], action) {
-    switch(action.type){
-        case _actions.SET_GENRES:
-            return action.genres;
-        default:
-            return state;
-    }
-}
-// reducer to update the directors when the action is dispatched
-function directors(state = [], action) {
-    switch(action.type){
-        case _actions.SET_DIRECTORS:
-            return action.directors;
-        default:
-            return state;
-    }
-}
-// reducer to update the user state when one of the actions is dispatched
-function user(state = [], action) {
-    switch(action.type){
-        case _actions.SET_USER:
-            return action.user;
-        case _actions.UPDATE_USER:
-            return action.userData;
-        case _actions.UPDATE_FAVORITES:
-            return action.favoriteMovies;
-        default:
-            return state;
-    }
-}
+// // reducer to update the genres when the action is dispatched
+// function genres(state = [], action) {
+//   switch (action.type) {
+//     case SET_GENRES:
+//       return action.genres;
+//     default:
+//       return state;
+//   }
+// }
+// // reducer to update the directors when the action is dispatched
+// function directors(state = [], action) {
+//   switch (action.type) {
+//     case SET_DIRECTORS:
+//       return action.directors;
+//     default:
+//       return state;
+//   }
+// }
+// // reducer to update the user state when one of the actions is dispatched
+// function user(state = [], action) {
+//   switch (action.type) {
+//     case SET_USER:
+//       return action.user;
+//     case UPDATE_USER:
+//       return action.userData;
+//     case UPDATE_FAVORITES:
+//       return action.favoriteMovies;
+//     default:
+//       return state;
+//   }
+// }
 // combined reducer that handles all state updates, for the whole app
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
-    movies,
-    genres,
-    directors,
-    user,
-    userData,
-    favoriteMovies
+    movies
 });
 exports.default = moviesApp;
 
