@@ -1,26 +1,29 @@
 import React from "react";
 import axios from "axios";
 
+import { connect } from "react-redux";
+
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+import { setMovies } from "../../actions/actions";
 
 import { NavBar } from "../navbar/navbar";
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieView } from "../movie-view/movie-view";
-import { MovieCard } from "../movie-card/movie-card";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from "../profile-view/profile-view";
+import MoviesList from "../movies-list/movies-list";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
       genres: [],
       directors: [],
       user: null,
@@ -46,10 +49,11 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
+        // // Assign the result to the state
+        // this.setState({
+        //   movies: response.data,
+        // });
+        this.props.setMovies(response.data);
         console.log("Movies:", response);
       })
       .catch(function (error) {
@@ -111,7 +115,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, genres, directors } = this.state;
+    const { user, genres, directors } = this.state;
+    const { movies } = this.props;
 
     return (
       <Router>
@@ -128,11 +133,12 @@ export class MainView extends React.Component {
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
-              return movies.map((m) => (
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
                 <Col sm={12} md={6} lg={4} key={m._id}>
-                  <MovieCard movie={m} />
+                  <MoviesList movies={movies} />;
                 </Col>
-              ));
+              );
             }}
           />
           {/*  USER REGISTRATION */}
@@ -271,4 +277,8 @@ export class MainView extends React.Component {
   }
 }
 
-export default MainView;
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
+
+export default connect(mapStateToProps, { setMovies })(MainView);
