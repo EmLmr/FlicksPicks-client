@@ -4,11 +4,11 @@ import { combineReducers } from "redux";
 import {
   SET_MOVIES,
   SET_FILTER,
-  SET_GENRES,
-  SET_DIRECTORS,
-  SET_USER,
-  UPDATE_USER,
-  UPDATE_FAVORITES,
+  // SET_GENRES,
+  // SET_DIRECTORS,
+  // SET_USER,
+  // UPDATE_USER,
+  // UPDATE_FAVORITES,
 } from "../actions/actions";
 
 // reducer to update the movies when the action is dispatched
@@ -31,52 +31,52 @@ function visibilityFilter(state = "", action) {
   }
 }
 
-// reducer to update the genres when the action is dispatched
-function genres(state = [], action) {
-  switch (action.type) {
-    case SET_GENRES:
-      return action.genres;
-    default:
-      return state;
-  }
-}
+// // reducer to update the genres when the action is dispatched
+// function genres(state = [], action) {
+//   switch (action.type) {
+//     case SET_GENRES:
+//       return action.genres;
+//     default:
+//       return state;
+//   }
+// }
 
-// reducer to update the directors when the action is dispatched
-function directors(state = [], action) {
-  switch (action.type) {
-    case SET_DIRECTORS:
-      return action.directors;
-    default:
-      return state;
-  }
-}
+// // reducer to update the directors when the action is dispatched
+// function directors(state = [], action) {
+//   switch (action.type) {
+//     case SET_DIRECTORS:
+//       return action.directors;
+//     default:
+//       return state;
+//   }
+// }
 
-// reducer to update the user state when one of the actions is dispatched
-function user(state = [], action) {
-  switch (action.type) {
-    case SET_USER:
-      return action.user;
+// // reducer to update the user state when one of the actions is dispatched
+// function user(state = [], action) {
+//   switch (action.type) {
+//     case SET_USER:
+//       return action.user;
 
-    case UPDATE_USER:
-      return action.userData;
+//     case UPDATE_USER:
+//       return action.userData;
 
-    case UPDATE_FAVORITES:
-      return action.favoriteMovies;
+//     case UPDATE_FAVORITES:
+//       return action.favoriteMovies;
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
 
 // combined reducer that handles all state updates, for the whole app
 const moviesApp = combineReducers({
   visibilityFilter,
   movies,
-  genres,
-  directors,
-  user,
-  userData,
-  favoriteMovies,
+  // genres,
+  // directors,
+  // user,
+  // userData,
+  // favoriteMovies,
 });
 
 export default moviesApp;
