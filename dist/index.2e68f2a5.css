@@ -86,31 +86,6 @@ h3 {
   padding: 0 0.5rem;
   margin-top: 3rem;
 }
-.movie-card {
-  width: 18rem;
-}
-
-.card-title h1 {
-  font-size: 1.2em;
-  font-family: "Oswald", sans-serif;
-}
-
-.card-description {
-  font-size: 1rem;
-}
-
-.release-badge {
-  background-color: #ff0075;
-}
-
-.card-description {
-  font-size: 1rem;
-}
-
-.card-img-top {
-  height: 17rem;
-  object-fit: contain;
-}
 .director-name h1 {
   font-size: 2.5em;
   font-family: "Oswald", sans-serif;
@@ -137,6 +112,31 @@ h3 {
 
 .favorites-list {
   width: 15rem;
+}
+.movie-card {
+  width: 18rem;
+}
+
+.card-title h1 {
+  font-size: 1.2em;
+  font-family: "Oswald", sans-serif;
+}
+
+.card-description {
+  font-size: 1rem;
+}
+
+.release-badge {
+  background-color: #ff0075;
+}
+
+.card-description {
+  font-size: 1rem;
+}
+
+.card-img-top {
+  height: 17rem;
+  object-fit: contain;
 }
 *,
 .my-flix {
