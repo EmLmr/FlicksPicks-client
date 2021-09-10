@@ -27669,8 +27669,7 @@ class NavBar extends _reactDefault.default.Component {
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                         size: "sm",
-                                        variant: "danger",
-                                        className: "logout-btn",
+                                        bsPrefix: "logout-btn",
                                         onClick: ()=>{
                                             this.onLoggedOut();
                                         },
@@ -42765,7 +42764,7 @@ function VisibilityFilterInput(props) {
         onChange: (e)=>props.setFilter(e.target.value)
         ,
         value: props.visibilityFilter,
-        placeholder: "filter",
+        placeholder: "Search movies...",
         __source: {
             fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
             lineNumber: 10
@@ -42890,6 +42889,7 @@ class MovieCard extends _reactDefault.default.Component {
                                 onClick: ()=>onMovieClick(movie)
                                 ,
                                 variant: "link",
+                                bsPrefix: "to-movie-view",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
                                     lineNumber: 27

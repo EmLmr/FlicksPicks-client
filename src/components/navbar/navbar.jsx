@@ -53,8 +53,7 @@ export class NavBar extends React.Component {
 
               <Button
                 size="sm"
-                variant="danger"
-                className="logout-btn"
+                bsPrefix="logout-btn"
                 onClick={() => {
                   this.onLoggedOut();
                 }}

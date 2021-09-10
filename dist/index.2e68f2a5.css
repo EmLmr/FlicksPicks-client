@@ -14,6 +14,23 @@ h3 {
   color: white;
   margin: 1.5rem;
 }
+
+.logout-btn {
+  background-color: #ff0075;
+  color: white;
+  padding: 0, 25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
 .logo {
   margin-top: 2.5rem;
 }
@@ -112,8 +129,8 @@ h3 {
   font-family: "Oswald", sans-serif;
   margin: 2rem 0;
 }
-h1,
-h3 {
+.profile-view h1,
+.profile-view h3 {
   font-family: "Oswald", sans-serif;
 }
 
@@ -139,7 +156,7 @@ h3 {
 }
 
 .release-badge {
-  background-color: #ff0075;
+  background-color: #4717f6;
 }
 
 .card-description {
@@ -149,6 +166,24 @@ h3 {
 .card-img-top {
   height: 17rem;
   object-fit: contain;
+}
+
+.to-movie-view {
+  background-color: #4717f6;
+  color: white;
+  padding: 0 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  user-select: none;
+  vertical-align: middle;
+  cursor: pointer;
 }
 *,
 .my-flix {
