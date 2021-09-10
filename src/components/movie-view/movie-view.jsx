@@ -89,7 +89,7 @@ export class MovieView extends React.Component {
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Button variant="danger" className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
+          <Button bsPrefix="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
             &#9825;
           </Button>
         </Row>

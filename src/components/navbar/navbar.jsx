@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
@@ -17,17 +16,13 @@ export class NavBar extends React.Component {
     this.state = {};
   }
 
-  onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.setState({
-      user: null,
-    });
-  }
+  onLoggedOut = () => {
+    localStorage.clear();
+    window.open("/", "_self");
+  };
 
   render() {
     const { user } = this.props;
-    const movies = `/`;
     const profile = `/users/${user}`;
 
     if (!user) return null;
@@ -42,7 +37,7 @@ export class NavBar extends React.Component {
         <Container className="nav-container justify-content-end">
           <Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav " />
-            <Navbar.Collapse className="nav-elements " id="basic-navbar-nav hamburger-nav ">
+            <Navbar.Collapse className="nav-elements ">
               <Link className="linkText" to={`/`}>
                 Movies
               </Link>
@@ -52,7 +47,7 @@ export class NavBar extends React.Component {
               <Link className="linkText" to={`/directors`}>
                 Directors
               </Link>
-              <Link className="linkText" to={`/users/:username`}>
+              <Link className="linkText" to={profile}>
                 Profile
               </Link>
 
