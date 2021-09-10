@@ -106,14 +106,6 @@ class MainView extends React.Component {
     this.getDirectors(authData.token);
   }
 
-  onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.setState({
-      user: null,
-    });
-  }
-
   render() {
     const { user, genres, directors } = this.state;
     const { movies } = this.props;
@@ -171,7 +163,7 @@ class MainView extends React.Component {
               if (movies.length === 0) return;
               return (
                 <Col xs={10} lg={8}>
-                  <ProfileView history={history} movies={movies} />;
+                  <ProfileView history={history} movies={movies} user={user} />;
                 </Col>
               );
             }}
