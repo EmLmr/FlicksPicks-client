@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
@@ -28,7 +29,14 @@ export class NavBar extends React.Component {
     if (!user) return null;
 
     return (
-      <Navbar className="navbar justify-content-end" activeKey="/">
+      <Navbar
+        className="navbar justify-content-end"
+        collapseOnSelect
+        expand="lg"
+        sticky="top"
+        // variant="dark"
+        activeKey="/"
+      >
         <div className="logo">
           <Link to={`/`}>
             <img alt="" src={logo} className="navbar-logo d-inline-block align-top" />
@@ -36,8 +44,8 @@ export class NavBar extends React.Component {
         </div>
         <Container className="nav-container justify-content-end">
           <Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav " />
-            <Navbar.Collapse className="nav-elements ">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-toggle" />
+            <Navbar.Collapse className="nav-elements">
               <Link className="linkText" to={`/`}>
                 Movies
               </Link>
