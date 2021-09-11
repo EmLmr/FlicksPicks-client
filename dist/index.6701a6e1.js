@@ -41363,7 +41363,8 @@ let mapStateToProps = (state)=>{
     };
 };
 exports.default = _reactRedux.connect(mapStateToProps, {
-    setUser: _actions.setUser
+    setUser: _actions.setUser,
+    updateUser: _actions.updateUser
 })(ProfileView);
 
   $parcel$ReactRefreshHelpers$58c6.postlude(module);
@@ -42600,42 +42601,21 @@ parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
-// export const UPDATE_USER = "UPDATE_USER";
-// export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
+parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
+);
 // ACTION CREATORS
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
-// export function setGenres(genres) {
-//   return {
-//     type: SET_GENRES,
-//     genres,
-//   };
-// }
-// export function setDirectors(directors) {
-//   return {
-//     type: SET_DIRECTORS,
-//     directors,
-//   };
-// }
 parcelHelpers.export(exports, "setUser", ()=>setUser
-) // export function updateUser(userData) {
- //   return {
- //     type: UPDATE_USER,
- //     user,
- //   };
- // }
- // export function updateFavorites(favoriteMovies) {
- //   return {
- //     type: UPDATE_FAVORITES,
- //     favoriteMovies,
- //   };
- // }
-;
+);
+parcelHelpers.export(exports, "updateUser", ()=>updateUser
+);
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
 const SET_USER = "SET_USER";
+const UPDATE_USER = "UPDATE_USER";
 function setMovies(movies) {
     return {
         type: SET_MOVIES,
@@ -42651,6 +42631,12 @@ function setFilter(value) {
 function setUser(user) {
     return {
         type: SET_USER,
+        user
+    };
+}
+function updateUser(user) {
+    return {
+        type: UPDATE_USER,
         user
     };
 }
@@ -43501,33 +43487,13 @@ function visibilityFilter(state = "", action) {
             return state;
     }
 }
-// // reducer to update the genres when the action is dispatched
-// function genres(state = [], action) {
-//   switch (action.type) {
-//     case SET_GENRES:
-//       return action.genres;
-//     default:
-//       return state;
-//   }
-// }
-// // reducer to update the directors when the action is dispatched
-// function directors(state = [], action) {
-//   switch (action.type) {
-//     case SET_DIRECTORS:
-//       return action.directors;
-//     default:
-//       return state;
-//   }
-// }
 // reducer to update the user state when one of the actions is dispatched
 function user(state = [], action) {
     switch(action.type){
         case _actions.SET_USER:
             return action.user;
-        // case UPDATE_USER:
-        //   return action.userData;
-        //     case UPDATE_FAVORITES:
-        //       return action.favoriteMovies;
+        case _actions.UPDATE_USER:
+            return action.user;
         default:
             return state;
     }
@@ -43536,8 +43502,6 @@ function user(state = [], action) {
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
     movies,
-    // genres,
-    // directors,
     user
 });
 exports.default = moviesApp;

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { Button, Card, Form, Row, Col, CardGroup } from "react-bootstrap";
 
-import { setUser } from "../../actions/actions";
+import { setUser, updateUser } from "../../actions/actions";
 
 import "./profile-view.scss";
 
@@ -266,4 +266,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { setUser })(ProfileView);
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
