@@ -27569,7 +27569,7 @@ class NavBar extends _reactDefault.default.Component {
             collapseOnSelect: true,
             expand: "lg",
             sticky: "top",
-            // variant="dark"
+            variant: "dark",
             activeKey: "/",
             __source: {
                 fileName: "src/components/navbar/navbar.jsx",

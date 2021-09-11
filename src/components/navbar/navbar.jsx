@@ -34,7 +34,7 @@ export class NavBar extends React.Component {
         collapseOnSelect
         expand="lg"
         sticky="top"
-        // variant="dark"
+        variant="dark"
         activeKey="/"
       >
         <div className="logo">
