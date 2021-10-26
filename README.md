@@ -1,7 +1,3 @@
-<h1 align="center">FlicksPicks Documentation</h1>
-
-https://emlmr.github.io/meet/
-
 # Objective
 
 To build the server-side of a [movie API](https://github.com/EmLmr/movie_api) that I previously created.
