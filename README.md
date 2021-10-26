@@ -1,11 +1,28 @@
 <h1 align="center">FlicksPicks Documentation</h1>
 
+https://emlmr.github.io/meet/
+
 # Objective
 
 To build the server-side of a [movie API](https://github.com/EmLmr/movie_api) that I previously created.
-The web application will provide users with access to information about different movies,
+The web application will provide users with information about different movies,
 directors, and genres.
 Users will also be able to sign up, update their user information, and add/remove movies to/from their list of favorite movies.
+
+## Quick Start
+To run the app locally yourself, clone the repository, and complete the following steps:
+
+### Install dependencies
+```bash
+npm install
+```
+
+### Start application with npm and run in browser
+_By default the app will run a local server on port: 3000_
+
+```bash
+npm run start
+```
 
 # Feature Requirements
 
