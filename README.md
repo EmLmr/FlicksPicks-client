@@ -17,7 +17,7 @@ npm install
 _By default the app will run a local server on port: 3000_
 
 ```bash
-npm run start
+npx parcel src/index.html
 ```
 
 # Feature Requirements
