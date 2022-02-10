@@ -1,13 +1,20 @@
 .profile-view h1,
 .profile-view h3 {
-  font-family: "Oswald", sans-serif;
-}
-
-.delete-profile,
-.favorite-movies {
-  margin-top: 3rem;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 3rem;
 }
 
 .favorites-list {
-  width: 15rem;
+    width: 15rem;
+    display: inline-flex;
+}
+
+.favorites-item.card-content {
+    min-width: 12rem;
+    max-width: 12rem;
+    margin: 2rem;
+}
+
+.card-group {
+    justify-content: center;
 }
