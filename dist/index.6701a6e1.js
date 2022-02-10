@@ -43286,7 +43286,7 @@ const mapStateToProps = (state)=>{
 function MoviesList(props) {
     const { movies , visibilityFilter  } = props;
     let filteredMovies = movies;
-    if (visibilityFilter !== "") filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
+    if (visibilityFilter !== '') filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
     );
     if (!movies) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
         className: "main-view",
@@ -43301,7 +43301,7 @@ function MoviesList(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                 md: 8,
                 style: {
-                    margin: "1em"
+                    margin: '1em'
                 },
                 __source: {
                     fileName: "src/components/movies-list/movies-list.jsx",
@@ -43321,6 +43321,7 @@ function MoviesList(props) {
                     sm: 12,
                     md: 6,
                     xl: 4,
+                    className: "d-flex justify-content-center",
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
                         lineNumber: 29
