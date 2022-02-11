@@ -29556,7 +29556,7 @@ var _containerDefault = parcelHelpers.interopDefault(_container);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _navbarScss = require("./navbar.scss");
-const logo = require("../../public/img/logo.png");
+const logo = require('../../public/img/logo.png');
 class NavBar extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -29565,14 +29565,14 @@ class NavBar extends _reactDefault.default.Component {
     }
     onLoggedOut = ()=>{
         localStorage.clear();
-        window.open("/", "_self");
+        window.open('/', '_self');
     };
     render() {
         const { user  } = this.props;
         const profile = `/users/${user}`;
         if (!user) return null;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_navbarDefault.default, {
-            className: "navbar justify-content-end",
+            className: "navbar justify-content-center",
             collapseOnSelect: true,
             expand: "lg",
             sticky: "top",
@@ -29611,7 +29611,7 @@ class NavBar extends _reactDefault.default.Component {
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
-                    className: "nav-container justify-content-end",
+                    className: "nav-container justify-content-center",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
                         lineNumber: 45
@@ -29624,77 +29624,58 @@ class NavBar extends _reactDefault.default.Component {
                         },
                         __self: this,
                         children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_navbarDefault.default.Toggle, {
-                                "aria-controls": "basic-navbar-nav",
-                                className: "nav-toggle",
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                className: "linkText",
+                                to: `/`,
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
                                     lineNumber: 47
                                 },
-                                __self: this
+                                __self: this,
+                                children: "Movies"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_navbarDefault.default.Collapse, {
-                                className: "nav-elements",
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                className: "linkText",
+                                to: `/genres`,
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 48
+                                    lineNumber: 50
                                 },
                                 __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        className: "linkText",
-                                        to: `/`,
-                                        __source: {
-                                            fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 49
-                                        },
-                                        __self: this,
-                                        children: "Movies"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        className: "linkText",
-                                        to: `/genres`,
-                                        __source: {
-                                            fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 52
-                                        },
-                                        __self: this,
-                                        children: "Genres"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        className: "linkText",
-                                        to: `/directors`,
-                                        __source: {
-                                            fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 55
-                                        },
-                                        __self: this,
-                                        children: "Directors"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        className: "linkText",
-                                        to: profile,
-                                        __source: {
-                                            fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 58
-                                        },
-                                        __self: this,
-                                        children: "Profile"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                        size: "sm",
-                                        bsPrefix: "logout-btn",
-                                        onClick: ()=>{
-                                            this.onLoggedOut();
-                                        },
-                                        __source: {
-                                            fileName: "src/components/navbar/navbar.jsx",
-                                            lineNumber: 62
-                                        },
-                                        __self: this,
-                                        children: "Log out"
-                                    })
-                                ]
+                                children: "Genres"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                className: "linkText",
+                                to: `/directors`,
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 53
+                                },
+                                __self: this,
+                                children: "Directors"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                className: "linkText",
+                                to: profile,
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 56
+                                },
+                                __self: this,
+                                children: "Profile"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                size: "sm",
+                                bsPrefix: "logout-btn",
+                                onClick: ()=>{
+                                    this.onLoggedOut();
+                                },
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 60
+                                },
+                                __self: this,
+                                children: "Log out"
                             })
                         ]
                     })
@@ -43094,7 +43075,7 @@ class ProfileView extends _reactDefault.default.Component {
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                         variant: "danger",
                         type: "submit",
-                        onClick: (e, newUsername, newPassword, newEmail, newBirthday)=>this.updateProfile(e, this.newUsername, this.newPassword, this.newEmail, this.newBirthday)
+                        onClick: (e, newUsername, newPassword, newEmail, newBirthday)=>this.updateProfile(e, newUsername, newPassword, newEmail, newBirthday)
                         ,
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
@@ -43107,21 +43088,21 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 224
+                        lineNumber: 216
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                         className: "delete-profile",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 225
+                            lineNumber: 217
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 226
+                                    lineNumber: 218
                                 },
                                 __self: this,
                                 children: "Delete account?"
@@ -43132,7 +43113,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 ,
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 227
+                                    lineNumber: 219
                                 },
                                 __self: this,
                                 children: "Delete Account"
@@ -43143,14 +43124,14 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 234
+                        lineNumber: 226
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                         className: "favorite-movies",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 235
+                            lineNumber: 227
                         },
                         __self: this,
                         children: [
@@ -43158,7 +43139,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 className: "favorites-list",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 236
+                                    lineNumber: 228
                                 },
                                 __self: this,
                                 children: "Your favorite movies:"
@@ -43166,7 +43147,7 @@ class ProfileView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.CardGroup, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 237
+                                    lineNumber: 229
                                 },
                                 __self: this,
                                 children: [
@@ -43174,7 +43155,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         className: "text-center",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 238
+                                            lineNumber: 230
                                         },
                                         __self: this,
                                         children: "No favorites yet :("
@@ -43186,7 +43167,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             bg: "dark",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 244
+                                                lineNumber: 236
                                             },
                                             __self: this,
                                             children: [
@@ -43197,14 +43178,14 @@ class ProfileView extends _reactDefault.default.Component {
                                                     src: movie.ImageURL,
                                                     __source: {
                                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 245
+                                                        lineNumber: 237
                                                     },
                                                     __self: this
                                                 }),
                                                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                                                     __source: {
                                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 251
+                                                        lineNumber: 243
                                                     },
                                                     __self: this,
                                                     children: [
@@ -43212,7 +43193,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             className: "card-title",
                                                             __source: {
                                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 252
+                                                                lineNumber: 244
                                                             },
                                                             __self: this,
                                                             children: movie.Title
@@ -43226,7 +43207,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             ,
                                                             __source: {
                                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 253
+                                                                lineNumber: 245
                                                             },
                                                             __self: this,
                                                             children: "Remove"
