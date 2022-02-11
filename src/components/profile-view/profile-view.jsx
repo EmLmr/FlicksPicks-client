@@ -204,16 +204,8 @@ export class ProfileView extends React.Component {
                     <Button
                         variant="danger"
                         type="submit"
-                        onClick={
-                            (e, newUsername, newPassword, newEmail, newBirthday) =>
-                                this.updateProfile(
-                                    e,
-                                    this.newUsername,
-                                    this.newPassword,
-                                    this.newEmail,
-                                    this.newBirthday
-                                )
-                            /* (e) => this.updateProfile(e, this.Username, this.Password, this.Email, this.Birthday)} */
+                        onClick={(e, newUsername, newPassword, newEmail, newBirthday) =>
+                            this.updateProfile(e, newUsername, newPassword, newEmail, newBirthday)
                         }
                     >
                         Update
