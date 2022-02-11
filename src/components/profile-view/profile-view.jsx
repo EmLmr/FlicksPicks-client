@@ -152,13 +152,8 @@ export class ProfileView extends React.Component {
 
         return (
             <div className="profile-view ">
-                {/*U SER INFO */}
-                <Form
-                    noValidate
-                    validated={validated}
-                    className="update-form"
-                    onSubmit={(e) => this.updateProfile(e, this.Username, this.Password, this.Email, this.Birthday)}
-                >
+                {/*USER INFO */}
+                <Form noValidate validated={validated} className="update-form">
                     <Row className="update-profile">
                         <Col>
                             <h1>Update profile:</h1>
@@ -196,7 +191,7 @@ export class ProfileView extends React.Component {
                                     Birthday:
                                 </Form.Label>
                                 <Form.Control
-                                    type="text"
+                                    type="date"
                                     placeholder={this.state.Birthday}
                                     onChange={(e) => this.setBirthday(e.target.value)}
                                 />
@@ -206,7 +201,21 @@ export class ProfileView extends React.Component {
                 </Form>
 
                 <Row className="justify-content-center">
-                    <Button variant="danger" type="submit">
+                    <Button
+                        variant="danger"
+                        type="submit"
+                        onClick={
+                            (e, newUsername, newPassword, newEmail, newBirthday) =>
+                                this.updateProfile(
+                                    e,
+                                    this.newUsername,
+                                    this.newPassword,
+                                    this.newEmail,
+                                    this.newBirthday
+                                )
+                            /* (e) => this.updateProfile(e, this.Username, this.Password, this.Email, this.Birthday)} */
+                        }
+                    >
                         Update
                     </Button>
                 </Row>
